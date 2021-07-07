@@ -1,0 +1,47 @@
+{% extends "market/layout.html" %}
+{% block body %}
+
+    {% if form.errors %}
+    <p style="color:red">Campo invalido</p>
+
+    {% endif %}
+
+    <h2>Agregar Producto</h2>
+
+    <div class="col-md-7 align-self-center">
+        
+        <form enctype="multipart/form-data" action="{% url 'market:producto_alta' %}" method="post" >
+            {% csrf_token %}
+
+            
+            <div class="form-group row">
+                <label for="titulo_input"  class="col-sm-2 col-form-label">Titulo:</label> {{ form.titulo }} {{ form.titulo.errors }}
+            </div>
+            <div class="row">
+                <div class="form-group float-left col-md-6">
+                    <label for="imagen_input"  class="col-sm-2 col-form-label">Imagen Adjunta:</label> {{ form.imagen }} {{ form.imagen.errors }}
+                </div>
+
+                <div class="float-rigth col-md-6">
+
+                    <div class="form-group row">
+                        <label for="categoria_input"  class="col-sm-2 col-form-label">Categoria:</label> {{ form.categoria }} {{ form.catogoria.errors }}
+                    </div>
+                    <div class="form-group row">
+                        <label for="precio_input"  class="col-sm-2 col-form-label">Precio:</label> {{ form.precio }} {{ form.precio.errors }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row" >
+                        
+                <label for="descripcion_input" class="col-sm-2 col-form-label">Descripcion:</label> {{ form.descripcion }} {{ form.descripcion.errors }}
+                <script>$("#id_descripcion").removeAttr("required");</script>
+            </div>
+            <br>
+            <div class="col-auto">
+                <input type="submit" class="btn btn-primary" value="Cargar">
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

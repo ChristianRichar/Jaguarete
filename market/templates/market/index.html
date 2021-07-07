@@ -1,0 +1,52 @@
+{% extends "market/layout.html" %} 
+{% block body %}
+    <div class="novedades">
+        
+        <h2>Novedades</h2>
+            <div class="container-fluid">
+
+                <div class="card-deck mt-3">
+                    <div class="row">
+                        {% for un_producto in ultimos %}
+                            <div class="col-md">
+                                <div class="card border-info rounded-lg">
+                                    
+                                    <img class="card-img-top embed-responsive-item" src="{{ media_url  }}{{ un_producto.imagen.url }}" alt="{{ un_producto.titulo }}">     
+                                    <h3 class="card-title align-self-center">{{ un_producto.titulo }}</h3>
+                                    <div class="row">
+                                        <div class="col-md offset-md-1"><h4>Precio {{ un_producto.precio }}</h4></div>
+                                        <div class="col-md"><a class="btn btn-primary" href="{% url 'market:producto' un_producto.id %}"><i class="fas fa-eye"></i> {{un_producto.titulo}}</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <li>No hay articulos en ésta Sección.</li>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="mas_productos col-md-10 align-self-center">
+        <div class="jumbotron ">
+            <h2>Mas Productos</h2>
+            <ul class="list-unstyled">
+                {% for un_producto in siguiente %}
+               
+                    <li> <div class="row">
+
+                    <div class="col-md"><h3>{{un_producto.titulo}}</h3></div>
+                    <div class="col-md"><a class="btn btn-primary" href="{% url 'market:producto' un_producto.id %}"><i class="fas fa-eye"></i></a></div>
+                    </div>
+                    </li>
+                
+                {% empty %}
+                    <h3>No hay articulos en ésta Sección.</h3>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    </li>
+
+
+{% endblock %}

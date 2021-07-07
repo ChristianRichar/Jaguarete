@@ -1,0 +1,105 @@
+
+
+
+body > div > div.inmovilizar{
+    position: -webkit-sticky; 
+    position: sticky;
+    top: 0; 
+    z-index: 100;
+
+}
+
+
+
+
+#botonesContacto > div > p{
+    font-size: 18px;
+    font-weight: bold;
+    margin: 12px;
+}
+
+body > div > div.footer.navbar-fixed-bottom > nav > p{
+    margin:auto;
+    text-align: center;
+    font-size: 12px;
+    color: cornsilk;
+}
+
+body > div > div.footer.navbar-fixed-bottom > nav{
+    margin:auto;
+    text-align: center;
+}
+
+body > div > div.mas_productos{
+
+    margin:auto;
+    text-align: center;
+}
+
+
+
+
+body > div > div.mas_productos{
+    
+    padding-top: 50px;
+}
+
+body > div > div.contenido{
+    
+    padding-top: 50px;
+}
+
+
+
+.card-img-top {
+    
+    height: 40vh;
+    object-fit: scale-down;
+    }
+
+h2{
+        font-family: sans-serif;
+        text-transform: uppercase;
+        font-weight: bolder;
+        text-align: center;
+        margin: auto;
+        margin-top: 50px;
+    }
+
+h1{
+        font-family: sans-serif;
+        text-transform: uppercase;
+        font-weight: bolder;
+        text-align: center;
+        margin: auto;
+        margin-top: 50px;
+    }
+
+body > div > div.mas_productos{
+    padding-bottom: 70px;
+}
+
+body > div.cuerpo > div.row{
+    margin-top: 50px;
+}
+
+
+body > div > div.col-md-7.align-self-center{
+
+    margin:auto;
+    text-align: center;
+}
+
+
+#formContent > form > div:nth-child(2){
+        
+        font-family: sans-serif;
+        text-transform: uppercase;
+        font-weight: bolder;
+        text-align: center;
+        margin: auto;
+        
+
+}
+
+

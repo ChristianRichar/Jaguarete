@@ -1,0 +1,34 @@
+{% extends "market/layout.html" %} 
+{% block body %}
+<div class="contenido">
+
+    <h1>Carrito</h1>
+
+    <h2>Listado de Productos </h2>
+
+    <ul class="list-unstyled">
+        {% for un_producto in cart %}
+            <li>
+                <div class="row">
+                <div class="col-md offset-md-1"><h3>{{un_producto.titulo}}</h3></div>
+                <div class="col-md"><h3>{{un_producto.precio}}</h3></div>
+                <div class="col-md"><a class="btn btn-primary" href="{% url 'market:remover_producto' un_producto.id %}">Eliminar</a></div>
+            </div>
+            </li>
+        {% empty %}
+            <li><h3>No se encontraron productos.</h3></li>
+        {% endfor %}
+    </ul>
+
+    
+       
+    <div class="row">
+        <div class="col-md offset-md-1"><h4> Total carrito: {{cart.total_carrito}}</h4></div>
+        
+
+        <div class="col-md"><a class="btn btn-primary" href="{% url 'market:vaciar_carrito' %}">Vaciar Carrito</a></div>
+        <div class="col-md"><a class="btn btn-primary" href="{% url 'market:vaciar_carrito' %}">Finalizar Compras</a></div>
+    </div>
+
+</div>
+{% endblock %}

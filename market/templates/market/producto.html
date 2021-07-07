@@ -1,0 +1,78 @@
+{% extends "market/layout.html" %}
+{% block body %}
+    <div class="panel panel-default col-md-10 offset-md-1">
+        <div class="panel-heading"><h2>{{ producto.titulo }}</h2></div>
+        <div class="row">
+            <div class=" float-left col-md-6 offset-md-1" ><img class="img-fluid" src="{{ media_url  }}{{ producto.imagen.url }}" alt="{{ producto.imagen.name }}" /></div>
+            <div class="row float-rigth col-md-4">
+                <div class="col-md-12 text-primary"><h3>Categoria : {{ producto.categoria }}</h3></div>
+                <div class="col-md-12"><h3>Descripcion:</h3>
+                    <h5 id="descripcion">{{ producto.descripcion }}</h5>
+                </div>
+                <div class="row">
+                    <div class="float-left col-md-6 offset-md-1"><h3> Precio:{{ producto.precio }}</h3></p></div>
+
+                    <div class="float-rigth col-md-4">
+                        {% if perms.market.add_producto%}
+
+                        <div class="row">
+                            <div class="float-left col-md-6 offset-md-1">
+
+                                <a  class="btn btn-primary"href="{% url 'market:producto_edicion' producto.id %}">
+                                    Editar
+                                </a>
+                            </div>
+
+                            <div class="float-rigth col-md-4">
+
+                                <a class="btn btn-primary" href="{% url 'market:producto_eliminar' producto.id %}">
+                                    Borrar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    {% if user.is_authenticated %}
+                        <div class="form-inline d-none d-lg-block form-search ms-auto">
+                            <form action="{% url 'market:cart_add' producto.id %}" method="POST">
+                                <div class="input-group col-md-6">
+                                    <div class="row">
+                                        {% csrf_token %}
+                                        
+                                        <div class="float-left col-md-12">{{ form_agregar_producto }}</div>
+                                        <button class="btn col-md-12" type="submit">
+                                            <i class="fas fa-cart-plus"></i>
+                                            
+                                          </button>
+                                        
+                                    </div>
+
+                                </div>
+                                
+                            </form>
+                        </div>
+
+                       
+                    {% endif %}
+                    
+                    
+
+
+                {% endif %}
+                    </div>
+
+
+                </div>
+                
+                
+
+
+            </div>
+           
+
+
+        </div>
+        
+        
+    </div>      
+{% endblock %}
